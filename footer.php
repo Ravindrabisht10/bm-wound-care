@@ -6,21 +6,49 @@
 ?>
 
 <hr />
-<div id="footer">
-	<div id="footer_copy">&copy; <?php echo date('Y'); ?> Wound Care Education Institute</div>
+</div>
 
-	<div id="footer_links">
-		<a href="https://www.wcei.net">Home</a> /
-		<a href="https://www.wcei.net/about/about-wcei">About WCEI</a> /
-		<a href="https://www.wcei.net/courses">Course Info</a> /
-		<a href="https://www.wcei.net/faq">FAQs</a> /
-		<a href="https://www.wcei.net/contact-us">Contact Us</a>
-		<!-- <a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a> -->
-	</div>
-		<!-- <?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds. -->
-	</p>
-</div>
-</div>
+
+<footer class="blog-page-footer">
+   <div class="footer-row">
+	   <div class="footer-top-nav">
+		<div class="footer-logo">
+			<a href="<?php echo site_url(); ?>">
+				<img src="https://www.wcei.net/MediaLibraries/WCEI/WCEI/Design/WoundCare_Logo_RGB_with_endorser.png"/>
+			</a>
+		</div>
+		<div class="footer-nav-section">
+          <div class="footer-nav-items">
+			<div class="footer-col">
+				<span>Explore blog</span>
+				<ul>
+				   <li><a href="<?php echo site_url(); ?>/category/specialties/skin-wound-management">Skin and Wound Management</a></li>
+				   <li><a href="<?php echo site_url(); ?>/category/specialties/diabetic-wound-management">Diabetic Wound Management</a></li>
+				   <li><a href="<?php echo site_url(); ?>/category/specialties/nutrition-wound-management">Nutrition Wound Management</a></li>
+				   <li><a href="<?php echo site_url(); ?>/category/specialties/ostomy-management">Ostomy Management</a></li>
+				</ul>
+			</div>
+			<div class="footer-col">
+		    	<span>About us</span>
+				<ul>
+				   <li><a href="">About WECI</a></li>
+				   <li><a href="">Wound Care Certificate Course</a></li>
+				   <li><a href="https://www.wcei.net/contact-us">Contact</a></li>
+				</ul>
+			</div>
+		  </div>
+		</div>
+       </div>
+	   <hr>
+	   <div class="footer-copyright">
+		   <span class="copyright">&copy;2021 Wound Care Education Institute</span>
+	   </div>
+   </div>
+</footer>
+
+
+
+
 <script type="text/javascript">
     jQuery(document).ready(function($){
         jQuery(document).on('OptinMonsterInit', function(event, data, object) {

@@ -10,12 +10,11 @@ get_header();
 	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-
+    
 		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
 			<h1><?php the_title(); ?></h1>
-            <p class="grey">Published on <?php echo get_the_date(); ?> by <?php the_author(); ?></p>
+            <p class="greyr">Published on <?php echo get_the_date(); ?> by <?php the_author(); ?></p>
 			<div class="entry">
                 <?php
                 // post featured image
@@ -107,5 +106,11 @@ get_header();
 <?php endif; ?>
 
 	</div>
+
+  <style>
+      .entry h2{
+          text-align: left !important;
+      }
+  </style>
 
 <?php get_footer(); ?>

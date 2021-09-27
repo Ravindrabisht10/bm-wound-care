@@ -241,8 +241,9 @@ body {
 
 #headerimg {
 	margin: 0;
-	height: 252px;
+	height: 254px;
 	width: 100%;
+	background-color: red;
 	}
 
 .narrowcolumn {
