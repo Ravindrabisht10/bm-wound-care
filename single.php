@@ -7,6 +7,65 @@
 get_header();
 ?>
 
+<style>
+
+/**related Post section**/
+.related-post {
+  margin: 40px 0px; }
+  .related-post .related-post-row h1 {
+    color: #920e1b;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #920e1b;
+    font-size: 22px; }
+  .related-post .related-post-row .related-post-grid {
+    padding: 0px;
+    margin: 30px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; }
+    .related-post .related-post-row .related-post-grid .related-post-col {
+      width: 50%;
+      margin: 0px;
+      border-radius: 4px;
+      background: #f9f9f9;
+      box-shadow: 0px 2px 9px -3px black;
+      position: relative; }
+      .related-post .related-post-row .related-post-grid .related-post-col:before {
+        content: none; }
+      .related-post .related-post-row .related-post-grid .related-post-col .related-img img {
+        height: 100%;
+        display: block;
+        border-radius: 4px 4px 0px 0px; }
+      .related-post .related-post-row .related-post-grid .related-post-col .related-post-body {
+        padding: 20px; }
+        .related-post .related-post-row .related-post-grid .related-post-col .related-post-body .post-content {
+          font-weight: 600;
+          margin: 0px 0px 20px;
+          line-height: 1.4;
+          padding-bottom: 40px; }
+        .related-post .related-post-row .related-post-grid .related-post-col .related-post-body .read-post {
+          display: inline-block;
+          margin: 0px 0px 20px 0px;
+          font-weight: 600;
+          color: #920e1b;
+          position: absolute;
+          bottom: 0px; }
+          .related-post .related-post-row .related-post-grid .related-post-col .related-post-body .read-post svg {
+            width: 16px;
+            vertical-align: middle;
+            background: #920e1b;
+            border-radius: 100px;
+            display: inline-flex;
+            height: 16px;
+            color: white;
+            justify-content: center;
+            padding-left: 1px; }
+
+</style>
+
 	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -41,7 +100,6 @@ get_header();
                 endif;
 
                 // post author card
-
                 // check if WP User Avatar is active
                 $pluginList = get_option( 'active_plugins' );
                 $WPUserPlugin = 'wp-user-avatar/wp-user-avatar.php';
@@ -52,6 +110,32 @@ get_header();
                     $author_photo = get_wp_user_avatar(get_the_author_meta($author_ID));
                     $author_description = get_the_author_meta('description');
                     ?>
+
+                    <div class="related-post">
+                    <div class="related-post-row">
+                        <h1 class="related-heading">Related posts</h1>
+                        <div class="related-post-grid">
+                            <?php 
+                                $related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 2, 'post__not_in' => array($post->ID) ) );
+                                if( $related ) foreach( $related as $post ) {
+                                setup_postdata($post); ?>
+                                        <div class="related-post-col">
+                                            <div class="related-img">
+                                            <?php the_post_thumbnail(); ?>
+                                            </div>
+                                            <div class="related-post-body">
+                                                <p class="post-content"> <?php the_title(); ?></p>
+                                                <a href="<?php the_permalink() ?>" class="read-post"  title="<?php the_title(); ?>">Read Post <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" class="svg-inline--fa fa-caret-right fa-w-6" role="img" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"/></svg></a>
+                                            </div>
+                                        </div>
+                                <?php }
+                                wp_reset_postdata(); ?>
+                        </div>
+                    </div>
+                    </div>  
+
+                   
+
                     <div class="author-card">
                         <div class="author-image">
                             <?php echo $author_photo; ?>
