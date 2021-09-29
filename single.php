@@ -7,65 +7,6 @@
 get_header();
 ?>
 
-<style>
-
-/**related Post section**/
-.related-post {
-  margin: 40px 0px; }
-  .related-post .related-post-row h1 {
-    color: #920e1b;
-    text-transform: uppercase;
-    margin: 0px;
-    padding: 0px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #920e1b;
-    font-size: 22px; }
-  .related-post .related-post-row .related-post-grid {
-    padding: 0px;
-    margin: 30px 0px 0px;
-    display: flex;
-    justify-content: space-between;
-    gap: 40px; }
-    .related-post .related-post-row .related-post-grid .related-post-col {
-      width: 50%;
-      margin: 0px;
-      border-radius: 4px;
-      background: #f9f9f9;
-      box-shadow: 0px 2px 9px -3px black;
-      position: relative; }
-      .related-post .related-post-row .related-post-grid .related-post-col:before {
-        content: none; }
-      .related-post .related-post-row .related-post-grid .related-post-col .related-img img {
-        height: 100%;
-        display: block;
-        border-radius: 4px 4px 0px 0px; }
-      .related-post .related-post-row .related-post-grid .related-post-col .related-post-body {
-        padding: 20px; }
-        .related-post .related-post-row .related-post-grid .related-post-col .related-post-body .post-content {
-          font-weight: 600;
-          margin: 0px 0px 20px;
-          line-height: 1.4;
-          padding-bottom: 40px; }
-        .related-post .related-post-row .related-post-grid .related-post-col .related-post-body .read-post {
-          display: inline-block;
-          margin: 0px 0px 20px 0px;
-          font-weight: 600;
-          color: #920e1b;
-          position: absolute;
-          bottom: 0px; }
-          .related-post .related-post-row .related-post-grid .related-post-col .related-post-body .read-post svg {
-            width: 16px;
-            vertical-align: middle;
-            background: #920e1b;
-            border-radius: 100px;
-            display: inline-flex;
-            height: 16px;
-            color: white;
-            justify-content: center;
-            padding-left: 1px; }
-
-</style>
-
 	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -180,7 +121,6 @@ get_header();
             </ul>
 
 		</div>
-
 
 
 	<?php endwhile; else: ?>
