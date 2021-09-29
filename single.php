@@ -77,6 +77,7 @@ get_header();
 
                    
 
+                    <h1 class="about-author-heading">About the Author</h1>
                     <div class="author-card">
                         <div class="author-image">
                             <?php echo $author_photo; ?>

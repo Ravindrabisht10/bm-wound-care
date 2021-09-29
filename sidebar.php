@@ -4,35 +4,6 @@
  * @subpackage Default_Theme
  */
 ?>
-   
-   <style>
-	   
-/**sidebar form**/
-#sidebar .widget_search .widgettitle {
-  text-align: center; }
-#sidebar .widget_search input[type="text"] {
-  border: 1px solid black;
-  padding: 3px !important; }
-#sidebar .widget_search #searchsubmit {
-  background: maroon;
-  border: none;
-  padding: 4px 10px;
-  border-radius: 0px;
-  color: white;
-  cursor: pointer; }
-  #sidebar .widget_search #searchsubmit:hover {
-    opacity: 0.8; }
-#sidebar .widget_text {
-  background: #f5e3b4;
-  border: none; }
-  #sidebar .widget_text form input {
-    padding: 8px;
-    margin-top: 3px;
-    border: none; }
-  #sidebar .widget_text form select {
-    height: 31px; }
-
-   </style>
 
 	<div id="sidebar">
 		<ul>
