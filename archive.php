@@ -7,25 +7,6 @@
 get_header();
 ?>
 
-    <style>
-
-	/**archive blog pages**/
-	.blog-category-page .blog-categoy-title {
-	text-align: left;
-	font-size: 30px;
-	font-family: roboto, sans-serif;
-	border-bottom: 4px solid #920e1b;
-	padding-bottom: 16px; }
-	.blog-category-page .post-thumbnail {
-	margin-top: 10px; }
-	.blog-category-page .post-thumbnail img {
-		width: 100%;
-		height: 100%; }
-	.blog-category-page .more-link span {
-	font-weight: bold; }
-
-	</style>
-
 	<div id="content" class="narrowcolumn blog-category-page">
 
 		<?php if (have_posts()) : ?>
@@ -47,14 +28,11 @@ get_header();
 		<h2 class="pagetitle">Blog Archives</h2>
  	  <?php } ?>
 
-
-	   <?php if (next_posts_link() || previous_posts_link()) :?>
 		<div class="navigation">
 			<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
 			<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
 		</div>
-		<?php endif; ?>
-
+	
 		<?php while (have_posts()) : the_post(); ?>
 		<div <?php post_class() ?>>
 				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
