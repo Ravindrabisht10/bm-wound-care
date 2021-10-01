@@ -11,7 +11,7 @@
 <meta name="google-site-verification" content="2RkWF1kVGhTiShs1rhZ_MRqoYBbG7Rc4nG966o-B5nc" />
 <meta name="test-the-pipeline" content="test" />
 <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?ver=0.0.2" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?ver=0.0.7" type="text/css" media="screen" />
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
