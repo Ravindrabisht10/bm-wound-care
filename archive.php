@@ -7,13 +7,13 @@
 get_header();
 ?>
 
-	<div id="content" class="narrowcolumn">
+	<div id="content" class="narrowcolumn blog-category-page">
 
 		<?php if (have_posts()) : ?>
 
  	  <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
-		<h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
+		<h2 class="pagetitle blog-categoy-title"><?php single_cat_title(); ?> Category</h2>
  	  <?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
 		<h2 class="pagetitle">Posts Tagged &#8216;<?php single_tag_title(); ?>&#8217;</h2>
  	  <?php /* If this is a daily archive */ } elseif (is_day()) { ?>
@@ -28,18 +28,18 @@ get_header();
 		<h2 class="pagetitle">Blog Archives</h2>
  	  <?php } ?>
 
-
 		<div class="navigation">
 			<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
 			<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
 		</div>
-
+	
 		<?php while (have_posts()) : the_post(); ?>
 		<div <?php post_class() ?>>
 				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 				<small><?php the_time('l, F jS, Y') ?></small>
 
 				<div class="entry">
+				    <div class="post-thumbnail"><?php the_post_thumbnail(); ?></div>
 					<?php the_content() ?>
 				</div>
 

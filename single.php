@@ -10,12 +10,11 @@ get_header();
 	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-
+    
 		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 
 			<h1><?php the_title(); ?></h1>
-            <p class="grey">Published on <?php echo get_the_date(); ?> by <?php the_author(); ?></p>
+            <p class="greyr">Published on <?php echo get_the_date(); ?> by <?php the_author(); ?></p>
 			<div class="entry">
                 <?php
                 // post featured image
@@ -42,7 +41,6 @@ get_header();
                 endif;
 
                 // post author card
-
                 // check if WP User Avatar is active
                 $pluginList = get_option( 'active_plugins' );
                 $WPUserPlugin = 'wp-user-avatar/wp-user-avatar.php';
@@ -53,6 +51,33 @@ get_header();
                     $author_photo = get_wp_user_avatar(get_the_author_meta($author_ID));
                     $author_description = get_the_author_meta('description');
                     ?>
+
+                    <div class="related-post">
+                    <div class="related-post-row">
+                        <h1 class="related-heading">Related posts</h1>
+                        <div class="related-post-grid">
+                            <?php 
+                                $related = get_posts( array( 'category__in' => wp_get_post_categories($post->ID), 'numberposts' => 2, 'post__not_in' => array($post->ID) ) );
+                                if( $related ) foreach( $related as $post ) {
+                                setup_postdata($post); ?>
+                                        <div class="related-post-col">
+                                            <div class="related-img">
+                                            <?php the_post_thumbnail(); ?>
+                                            </div>
+                                            <div class="related-post-body">
+                                                <p class="post-content"> <?php the_title(); ?></p>
+                                                <a href="<?php the_permalink() ?>" class="read-post"  title="<?php the_title(); ?>">Read Post <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" class="svg-inline--fa fa-caret-right fa-w-6" role="img" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"/></svg></a>
+                                            </div>
+                                        </div>
+                                <?php }
+                                wp_reset_postdata(); ?>
+                        </div>
+                    </div>
+                    </div>  
+
+                   
+
+                    <h1 class="about-author-heading">About the Author</h1>
                     <div class="author-card">
                         <div class="author-image">
                             <?php echo $author_photo; ?>
@@ -99,7 +124,6 @@ get_header();
 		</div>
 
 
-
 	<?php endwhile; else: ?>
 
 		<p>Sorry, no posts matched your criteria.</p>
@@ -107,5 +131,11 @@ get_header();
 <?php endif; ?>
 
 	</div>
+
+  <style>
+      .entry h2{
+          text-align: left !important;
+      }
+  </style>
 
 <?php get_footer(); ?>

@@ -4,6 +4,7 @@
  * @subpackage Default_Theme
  */
 ?>
+
 	<div id="sidebar">
 		<ul>
 			<?php 	/* Widgetized sidebar, if you have the plugin installed. */
